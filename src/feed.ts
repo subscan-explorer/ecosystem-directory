@@ -40,6 +40,7 @@ export function parseCatalogFeed(value: unknown): CatalogFeed {
       !text(a.name, 100) ||
       !text(a.description, 2000) ||
       !https(a.website) ||
+      (a.logo !== undefined && (typeof a.logo !== 'string' || a.logo.length > 140000 || !/^data:image\/png;base64,iVBORw0KGgo[A-Za-z0-9+/]*={0,2}$/.test(a.logo))) ||
       !categories.includes(a.category) ||
       !strings(a.tasks) ||
       !a.tasks.every((t) => tasks.includes(t)) ||
@@ -60,11 +61,12 @@ export function parseCatalogFeed(value: unknown): CatalogFeed {
       sample: false,
       networks: d.networks.map(({ id, name }) => ({ id, name })),
       ecosystems: d.ecosystems,
-      apps: d.apps.map(({ id, name, description, website, category, tasks, networks, ecosystems }) => ({
+      apps: d.apps.map(({ id, name, description, website, logo, category, tasks, networks, ecosystems }) => ({
         id,
         name,
         description,
         website,
+        ...(logo ? { logo } : {}),
         category,
         tasks,
         networks,

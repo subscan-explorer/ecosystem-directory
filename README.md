@@ -79,3 +79,17 @@ Configure `ECOSYSTEM_CATALOG_URL` once to the stable URL,
 `ECOSYSTEM_CACHE_DIRECTORY` to persistent storage. Data updates do not require a
 frontend build or restart. The local www preview already uses this live feed;
 production frontend deployment is separate.
+
+## Official project logos
+
+Store a reviewed PNG thumbnail in `logos/<app-id>.png` (maximum 100 KB) and set
+`logoFile` on its app record. `logos/sources.json` records the official source,
+retrieval date and original-file SHA-256. Current thumbnails are 96 x 96, retain
+original proportions, and use a white backing for consistent legibility.
+
+The builder embeds thumbnails as optional PNG data URLs in the catalog. This
+keeps logo and metadata activation atomic, avoids third-party image requests,
+and uses the same one-command local publication flow. Old clients can ignore the
+optional field; clients without a logo retain their initial-letter fallback.
+The public payload excludes provenance and local file paths. No raw SVG markup is
+embedded. Review logo provenance when accepting future project updates.

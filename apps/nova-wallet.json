@@ -33,5 +33,6 @@
   "reviewedAt": "2026-11-23",
   "reviewRevision": "625ede7162178e211b610c8d5689f14e0015ea8f929b59ec4b25e472d592e357",
   "reviewMethod": "Agent review of official product documentation and production network configuration; maintainer-authorized publication through tested main",
-  "notes": "Official v23 production chain config explicitly lists the nine networks. Distinguish Polkadot Relay genesis 91b171... from Polkadot (Asset Hub) genesis 68d56f...; Kusama Relay b0a8d4... from Kusama (Asset Hub) 48239e.... Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed."
+  "notes": "Official v23 production chain config explicitly lists the nine networks. Distinguish Polkadot Relay genesis 91b171... from Polkadot (Asset Hub) genesis 68d56f...; Kusama Relay b0a8d4... from Kusama (Asset Hub) 48239e.... Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed.",
+  "logoFile": "logos/nova-wallet.png"
 }

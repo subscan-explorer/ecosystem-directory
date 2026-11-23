@@ -1,0 +1,62 @@
+{
+  "hydration": {
+    "page": "https://hydration.net",
+    "source": "https://hydration.net/icon.png?468784eb043d7c17",
+    "retrievedAt": "2026-11-23",
+    "originalSha256": "060ff396421d8a04144ae7422dbcf996dea40cbc1b82c2477e955732c8fd2061"
+  },
+  "astar-portal": {
+    "page": "https://portal.astar.network",
+    "source": "https://portal.astar.network/favicon/apple-touch-icon.png",
+    "retrievedAt": "2026-11-23",
+    "originalSha256": "8e8a6caaf1b1bcb7616543df9c2a86c02b2ac475292b3c3762fa0e212fcf09f8"
+  },
+  "polkadot-js-apps": {
+    "page": "https://polkadot.js.org/apps/",
+    "source": "https://polkadot.js.org/apps/favicon.ico",
+    "retrievedAt": "2026-11-23",
+    "originalSha256": "5971cb2ba8efbbd46bcae37a02f1893fc9bdb906eaa54ece5f74efb565a78eb4"
+  },
+  "talisman": {
+    "page": "https://talisman.xyz",
+    "source": "https://talisman.xyz/apple-touch-icon.png?v=1749994215",
+    "retrievedAt": "2026-11-23",
+    "originalSha256": "f534b788ba5471ef8e726ad06c6e38b29963fe4fad724c18b27ae0ea0bd12430"
+  },
+  "polkadot-developers": {
+    "page": "https://developers.polkadot.com",
+    "source": "https://developers.polkadot.com/favicon.svg",
+    "retrievedAt": "2026-11-23",
+    "originalSha256": "97c9ec546d457ff152a7fa69b9f70e7ab23160017f7479cf766a741280ac1c5b"
+  },
+  "subsquare": {
+    "page": "https://subsquare.io",
+    "source": "https://subsquare.io/favicon.ico",
+    "retrievedAt": "2026-11-23",
+    "originalSha256": "e1fa43e6599feee847d5fbbc4c5c7132d75355d1a659b168017e497409d9927f"
+  },
+  "snowbridge": {
+    "page": "https://app.snowbridge.network",
+    "source": "https://app.snowbridge.network/icon.svg",
+    "retrievedAt": "2026-11-23",
+    "originalSha256": "4fc4d7fff1df6fa1e6e4b7d963a3e8b77672f215f6a51deee36af468a13fb384"
+  },
+  "nova-wallet": {
+    "page": "https://novawallet.io",
+    "source": "https://raw.githubusercontent.com/novasamatech/nova-wallet-android/9c3a83db14e061fed393960d990cb97d174378ac/app/src/release/res/mipmap-xxxhdpi/ic_launcher.png",
+    "retrievedAt": "2026-11-23",
+    "originalSha256": "29ad2560be219a6617804bcaddbe38c618a8a8832abd2bd306dd400650344247"
+  },
+  "subwallet": {
+    "page": "https://www.subwallet.app",
+    "source": "https://www.subwallet.app/assets/images/favicon/favicon-192x192.png",
+    "retrievedAt": "2026-11-23",
+    "originalSha256": "16fe3a95ac8808a7daa817ff8d1356ea8751dfa789223410aef9407b9522617d"
+  },
+  "bifrost": {
+    "page": "https://bifrost.io",
+    "source": "https://bifrost.io/images/favicon/apple-touch-icon.png",
+    "retrievedAt": "2026-11-23",
+    "originalSha256": "c6a9d307de4e3a358ebd9975d4a97fca8b1fa7599cfbc4593282c8c39522945c"
+  }
+}

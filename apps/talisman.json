@@ -33,5 +33,6 @@
   "reviewedAt": "2026-11-23",
   "reviewRevision": "3b25b68d2e91cb35450d18d453d0c6fc12b340937d843b48f7a28105fcf4d4da",
   "reviewMethod": "Agent review of official product documentation and production network configuration; maintainer-authorized publication through tested main",
-  "notes": "Official published v15 production config maps polkadot, kusama, polkadot-asset-hub, kusama-asset-hub, hydradx, astar, bifrost-polkadot, bifrost-kusama and Ethereum id 1. Disabled-by-default is not interpreted as unsupported; testnets are excluded. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed."
+  "notes": "Official published v15 production config maps polkadot, kusama, polkadot-asset-hub, kusama-asset-hub, hydradx, astar, bifrost-polkadot, bifrost-kusama and Ethereum id 1. Disabled-by-default is not interpreted as unsupported; testnets are excluded. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed.",
+  "logoFile": "logos/talisman.png"
 }
