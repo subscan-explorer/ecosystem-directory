@@ -1,0 +1,31 @@
+{
+  "status": "approved",
+  "app": {
+    "id": "bifrost",
+    "name": "Bifrost",
+    "description": "Liquid staking interface for minting and managing supported vTokens on Bifrost networks and Ethereum.",
+    "website": "https://app.bifrost.io",
+    "category": "staking",
+    "tasks": [
+      "stake"
+    ],
+    "networks": [
+      "bifrost",
+      "bifrost-kusama",
+      "ethereum"
+    ],
+    "ecosystems": [
+      "Polkadot",
+      "Kusama",
+      "Ethereum"
+    ]
+  },
+  "sources": [
+    "https://docs.bifrost.io/dapp-tutorials-and-use-cases/liquid-staking-on-bifrost",
+    "https://docs.bifrost.io/resources/tools"
+  ],
+  "reviewedAt": "2026-11-23",
+  "reviewRevision": "edd4e1ac2c750108db9924aeac0335abcfd53d23e52da4fbcf7b0794c39440e5",
+  "reviewMethod": "Agent review of official product documentation and production network configuration; maintainer-authorized publication through tested main",
+  "notes": "Official tutorial explicitly identifies Bifrost-Polkadot, Bifrost-Kusama and Ethereum for vETH. Bifrost Polkadot uses Subscan network slug bifrost. An underlying staking asset such as DOT or GLMR is not treated as evidence of application deployment on its origin chain. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed."
+}

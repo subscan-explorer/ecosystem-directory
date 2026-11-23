@@ -1,0 +1,36 @@
+{
+  "status": "approved",
+  "app": {
+    "id": "polkadot-js-apps",
+    "name": "Polkadot.js Apps",
+    "description": "Developer interface for inspecting chain state and composing transactions on supported Substrate networks.",
+    "website": "https://polkadot.js.org/apps/",
+    "category": "developer",
+    "tasks": [
+      "build"
+    ],
+    "networks": [
+      "polkadot",
+      "kusama",
+      "assethub-polkadot",
+      "assethub-kusama",
+      "hydration",
+      "astar",
+      "bifrost",
+      "bifrost-kusama"
+    ],
+    "ecosystems": [
+      "Polkadot",
+      "Kusama"
+    ]
+  },
+  "sources": [
+    "https://polkadot.js.org/ui/",
+    "https://github.com/polkadot-js/apps/blob/ce66b132b97054157d161bac63410ab74de5cd88/packages/apps-config/src/endpoints/productionRelayPolkadot.ts",
+    "https://github.com/polkadot-js/apps/blob/ce66b132b97054157d161bac63410ab74de5cd88/packages/apps-config/src/endpoints/productionRelayKusama.ts"
+  ],
+  "reviewedAt": "2026-11-23",
+  "reviewRevision": "bbd7c1bed6472ea274b43c0518322ffa351b8614087363da46f5f55138b5bf5d",
+  "reviewMethod": "Agent review of official product documentation and production network configuration; maintainer-authorized publication through tested main",
+  "notes": "Official production endpoint groups separately list Polkadot Relay, Kusama Relay, both Asset Hubs, Hydration, Astar and each Bifrost parachain. A developer interface, not a recommendation to manage wallet secrets. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed."
+}
