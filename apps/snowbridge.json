@@ -25,5 +25,6 @@
   "reviewedAt": "2026-11-23",
   "reviewRevision": "2a6625465b117f2b6a1610faf0343b9660ad5d3f0289cf7cb8de74f6a763ae2f",
   "reviewMethod": "Agent review of official product documentation and production network configuration; maintainer-authorized publication through tested main",
-  "notes": "Architecture identifies Ethereum and Polkadot Hub as endpoints. Polkadot Hub uses existing assethub-polkadot identity. Bridge Hub is infrastructure, not a user destination in this listing; additional parachain routes are not claimed. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed."
+  "notes": "Architecture identifies Ethereum and Polkadot Hub as endpoints. Polkadot Hub uses existing assethub-polkadot identity. Bridge Hub is infrastructure, not a user destination in this listing; additional parachain routes are not claimed. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed.",
+  "logoFile": "logos/snowbridge.png"
 }

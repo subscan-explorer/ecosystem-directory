@@ -32,5 +32,6 @@
   "reviewedAt": "2026-11-23",
   "reviewRevision": "bbd7c1bed6472ea274b43c0518322ffa351b8614087363da46f5f55138b5bf5d",
   "reviewMethod": "Agent review of official product documentation and production network configuration; maintainer-authorized publication through tested main",
-  "notes": "Official production endpoint groups separately list Polkadot Relay, Kusama Relay, both Asset Hubs, Hydration, Astar and each Bifrost parachain. A developer interface, not a recommendation to manage wallet secrets. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed."
+  "notes": "Official production endpoint groups separately list Polkadot Relay, Kusama Relay, both Asset Hubs, Hydration, Astar and each Bifrost parachain. A developer interface, not a recommendation to manage wallet secrets. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed.",
+  "logoFile": "logos/polkadot-js-apps.png"
 }

@@ -7,6 +7,7 @@ export type DirectoryApp = {
   name: string
   description: string
   website: string
+  logo?: string
   category: Category
   tasks: Task[]
   networks: string[]

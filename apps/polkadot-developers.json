@@ -23,5 +23,6 @@
   "reviewedAt": "2026-11-23",
   "reviewRevision": "eccb98fed7bbcffe27632528714a174c2eab3883db90002c9cf2ed79680ed046",
   "reviewMethod": "Agent review of official product documentation and production network configuration; maintainer-authorized publication through tested main",
-  "notes": "This is an ecosystem developer resource, not a deployed DApp. Network association denotes explicitly documented Polkadot Hub coverage, using assethub-polkadot, not generic ecosystem membership or a claim to deploy on every parachain. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed."
+  "notes": "This is an ecosystem developer resource, not a deployed DApp. Network association denotes explicitly documented Polkadot Hub coverage, using assethub-polkadot, not generic ecosystem membership or a claim to deploy on every parachain. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed.",
+  "logoFile": "logos/polkadot-developers.png"
 }

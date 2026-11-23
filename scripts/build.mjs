@@ -13,7 +13,14 @@ export async function build(root, output, revision) {
     if (!['approved','candidate','suspended','removed'].includes(record.status)) throw new Error(`Invalid status: ${filename}`)
     if (record.status !== 'approved') continue
     if (!Array.isArray(record.sources) || !record.sources.length || !record.sources.every(s => typeof s === 'string' && s.startsWith('https://')) || !Number.isFinite(Date.parse(record.reviewedAt)) || !record.reviewRevision) throw new Error(`Missing review evidence: ${filename}`)
-    apps.push(record.app)
+    const app = { ...record.app }
+    if (record.logoFile !== undefined) {
+      if (record.logoFile !== `logos/${app.id}.png` || !/^[a-z0-9-]+$/.test(app.id)) throw new Error('Invalid logo path')
+      const logo = await readFile(path.join(root, record.logoFile))
+      if (logo.length > 100000 || logo.subarray(0, 8).toString('hex') !== '89504e470d0a1a0a') throw new Error('Logo must be a PNG thumbnail under 100 KB')
+      app.logo = `data:image/png;base64,${logo.toString('base64')}`
+    }
+    apps.push(app)
   }
   const feed=parseCatalogFeed({schemaVersion:1,releaseId:revision,publishedAt:process.env.PUBLICATION_TIME || new Date().toISOString(),directory:{...taxonomy,apps,sample:false}})
   const bytes=JSON.stringify(feed,null,2)+'\n'

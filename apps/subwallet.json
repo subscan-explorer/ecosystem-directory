@@ -34,5 +34,6 @@
   "reviewedAt": "2026-11-23",
   "reviewRevision": "af5873079a58ca5cd84753ad5dc56d8a96643e976121ea29a5c7667e1b9ceabf",
   "reviewMethod": "Agent review of official product documentation and production network configuration; maintainer-authorized publication through tested main",
-  "notes": "Official supported-network page separately names relay chains, both Asset Hubs, Hydration, Astar and both Bifrost networks; transfer documentation explicitly lists Ethereum. Older or retired networks elsewhere in the full list are not imported. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed."
+  "notes": "Official supported-network page separately names relay chains, both Asset Hubs, Hydration, Astar and both Bifrost networks; transfer documentation explicitly lists Ethereum. Older or retired networks elsewhere in the full list are not imported. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed.",
+  "logoFile": "logos/subwallet.png"
 }

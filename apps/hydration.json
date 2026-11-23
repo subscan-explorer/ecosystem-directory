@@ -22,5 +22,6 @@
   "reviewedAt": "2026-11-23",
   "reviewRevision": "b05caf864742c48387636c1a76c4d5a769772891b06076640a4b9cd848b15a60",
   "reviewMethod": "Agent source check; publication requires PR approval and merge",
-  "notes": "Polkadot ecosystem membership is not treated as Relay Chain support. No security audit or yield claims."
+  "notes": "Polkadot ecosystem membership is not treated as Relay Chain support. No security audit or yield claims.",
+  "logoFile": "logos/hydration.png"
 }
