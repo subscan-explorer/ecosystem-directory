@@ -1,0 +1,63 @@
+name: Update an application or resource
+description: Suggest catalog data for review
+title: "[Ecosystem update] "
+body:
+  - type: markdown
+    attributes:
+      value: Submissions are public. Do not include secrets or private contact
+        details. AI may prepare a data PR; publication requires human review and
+        a successful merge-triggered release.
+  - type: input
+    id: app-id
+    attributes:
+      label: Existing application ID or directory URL
+    validations:
+      required: true
+  - type: textarea
+    id: name
+    attributes:
+      label: Application or resource name
+    validations:
+      required: true
+  - type: textarea
+    id: website
+    attributes:
+      label: Official website
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description and category
+    validations:
+      required: true
+  - type: textarea
+    id: networks
+    attributes:
+      label: Supported network IDs and evidence for each network
+    validations:
+      required: true
+  - type: textarea
+    id: ecosystems
+    attributes:
+      label: Ecosystem memberships (separate from network support)
+    validations:
+      required: true
+  - type: textarea
+    id: capabilities
+    attributes:
+      label: Capabilities and official source links
+    validations:
+      required: true
+  - type: textarea
+    id: logo
+    attributes:
+      label: Official logo source and usage permission
+    validations:
+      required: false
+  - type: textarea
+    id: reason
+    attributes:
+      label: Proposed changes and evidence / additional context
+    validations:
+      required: true

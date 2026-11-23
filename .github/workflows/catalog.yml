@@ -1,0 +1,41 @@
+name: Validate and build catalog
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: catalog-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.22.1
+      - run: npm test
+      - run: npm run build
+        env:
+          CATALOG_REVISION: ${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ecosystem-catalog
+          path: dist/
+      - uses: google-github-actions/auth@v2
+        if: github.event_name == 'push' && vars.CATALOG_PUBLISH_ENABLED == 'true'
+        with:
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+      - uses: google-github-actions/setup-gcloud@v2
+        if: github.event_name == 'push' && vars.CATALOG_PUBLISH_ENABLED == 'true'
+      - name: Publish independent catalog
+        if: github.event_name == 'push' && vars.CATALOG_PUBLISH_ENABLED == 'true'
+        run: |
+          git fetch origin main
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
+          node scripts/publish.mjs
+        env:
+          CATALOG_GCS_PATH: ${{ vars.CATALOG_GCS_PATH }}
+          INITIAL_CATALOG_PUBLISH: ${{ vars.INITIAL_CATALOG_PUBLISH }}

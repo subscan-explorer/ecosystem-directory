@@ -1,0 +1,19 @@
+{
+  "networks": [
+    {
+      "id": "polkadot",
+      "name": "Polkadot Relay Chain"
+    },
+    {
+      "id": "hydration",
+      "name": "Hydration"
+    },
+    {
+      "id": "assethub-polkadot",
+      "name": "Asset Hub Polkadot"
+    }
+  ],
+  "ecosystems": [
+    "Polkadot"
+  ]
+}
