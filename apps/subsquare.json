@@ -1,0 +1,30 @@
+{
+  "status": "approved",
+  "app": {
+    "id": "subsquare",
+    "name": "SubSquare",
+    "description": "Explore governance proposals, discussions and voting across supported networks.",
+    "website": "https://subsquare.io",
+    "category": "governance",
+    "tasks": [
+      "vote"
+    ],
+    "networks": [
+      "assethub-polkadot",
+      "kusama",
+      "hydration",
+      "astar"
+    ],
+    "ecosystems": [
+      "Polkadot",
+      "Kusama"
+    ]
+  },
+  "sources": [
+    "https://subsquare.io/"
+  ],
+  "reviewedAt": "2026-11-23",
+  "reviewRevision": "95d3501603971d4dd66d42199b26c1c5f81fea95e3066973cb5ac15bf95b7437",
+  "reviewMethod": "Agent source check; publication requires PR approval and merge",
+  "notes": "Polkadot ecosystem membership is not treated as Relay Chain support. No security audit or yield claims."
+}

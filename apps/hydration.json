@@ -1,0 +1,26 @@
+{
+  "status": "approved",
+  "app": {
+    "id": "hydration",
+    "name": "Hydration",
+    "description": "Trading and liquidity tools on the Hydration network.",
+    "website": "https://hydration.net",
+    "category": "defi",
+    "tasks": [
+      "swap"
+    ],
+    "networks": [
+      "hydration"
+    ],
+    "ecosystems": [
+      "Polkadot"
+    ]
+  },
+  "sources": [
+    "https://docs.hydration.net/"
+  ],
+  "reviewedAt": "2026-11-23",
+  "reviewRevision": "b05caf864742c48387636c1a76c4d5a769772891b06076640a4b9cd848b15a60",
+  "reviewMethod": "Agent source check; publication requires PR approval and merge",
+  "notes": "Polkadot ecosystem membership is not treated as Relay Chain support. No security audit or yield claims."
+}
