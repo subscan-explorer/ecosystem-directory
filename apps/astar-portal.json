@@ -1,0 +1,28 @@
+{
+  "status": "approved",
+  "app": {
+    "id": "astar-portal",
+    "name": "Astar Portal",
+    "description": "Official Astar interface for dApp staking and governance.",
+    "website": "https://portal.astar.network",
+    "category": "staking",
+    "tasks": [
+      "stake",
+      "vote"
+    ],
+    "networks": [
+      "astar"
+    ],
+    "ecosystems": [
+      "Polkadot"
+    ]
+  },
+  "sources": [
+    "https://astar.network/products/",
+    "https://docs.astar.network/docs/use/how-to-guides/layer-1/dapp-staking/for-stakers/"
+  ],
+  "reviewedAt": "2026-11-23",
+  "reviewRevision": "a50a9fb50cdfbe7a55f0f36aa7d6de2e39f52338c9031a8d8cd260007191f8fe",
+  "reviewMethod": "Agent review of official product documentation and production network configuration; maintainer-authorized publication through tested main",
+  "notes": "Current official product page explicitly identifies Portal, dApp Staking and Governance as live on Astar. Historical Shiden references are not used to extend this listing without a current product check. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed."
+}

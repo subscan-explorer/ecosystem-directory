@@ -19,10 +19,27 @@
     {
       "id": "astar",
       "name": "Astar"
+    },
+    {
+      "id": "assethub-kusama",
+      "name": "Asset Hub Kusama"
+    },
+    {
+      "id": "bifrost",
+      "name": "Bifrost Polkadot"
+    },
+    {
+      "id": "bifrost-kusama",
+      "name": "Bifrost Kusama"
+    },
+    {
+      "id": "ethereum",
+      "name": "Ethereum"
     }
   ],
   "ecosystems": [
     "Polkadot",
-    "Kusama"
+    "Kusama",
+    "Ethereum"
   ]
 }

@@ -1,0 +1,38 @@
+{
+  "status": "approved",
+  "app": {
+    "id": "subwallet",
+    "name": "SubWallet",
+    "description": "Browser and mobile wallet for managing multichain accounts, transferring assets and connecting to DApps.",
+    "website": "https://www.subwallet.app",
+    "category": "wallets",
+    "tasks": [
+      "wallet"
+    ],
+    "networks": [
+      "polkadot",
+      "kusama",
+      "assethub-polkadot",
+      "assethub-kusama",
+      "hydration",
+      "astar",
+      "bifrost",
+      "bifrost-kusama",
+      "ethereum"
+    ],
+    "ecosystems": [
+      "Polkadot",
+      "Kusama",
+      "Ethereum"
+    ]
+  },
+  "sources": [
+    "https://docs.subwallet.app/main/integration/supported-network",
+    "https://docs.subwallet.app/main/extension-user-guide/receive-and-transfer-assets",
+    "https://www.subwallet.app"
+  ],
+  "reviewedAt": "2026-11-23",
+  "reviewRevision": "af5873079a58ca5cd84753ad5dc56d8a96643e976121ea29a5c7667e1b9ceabf",
+  "reviewMethod": "Agent review of official product documentation and production network configuration; maintainer-authorized publication through tested main",
+  "notes": "Official supported-network page separately names relay chains, both Asset Hubs, Hydration, Astar and both Bifrost networks; transfer documentation explicitly lists Ethereum. Older or retired networks elsewhere in the full list are not imported. Listed networks are the verified subset in this directory, not an exhaustive product support list. No funded transaction or security audit was performed."
+}
