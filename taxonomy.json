@@ -11,9 +11,18 @@
     {
       "id": "assethub-polkadot",
       "name": "Asset Hub Polkadot"
+    },
+    {
+      "id": "kusama",
+      "name": "Kusama"
+    },
+    {
+      "id": "astar",
+      "name": "Astar"
     }
   ],
   "ecosystems": [
-    "Polkadot"
+    "Polkadot",
+    "Kusama"
   ]
 }
