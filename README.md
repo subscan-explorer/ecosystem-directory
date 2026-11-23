@@ -1,41 +1,54 @@
 # Subscan Ecosystem catalog
 
-Portable independent data repository, pending destination configuration.
+Independent source of https://gcs.subscan.io/ecosystem/catalog.json.
 Node 24.22.1; no npm dependencies. Run `npm test` then `npm run build`.
 
-GitHub Issue Forms are ready under `.github/ISSUE_TEMPLATE`. Issues do not publish
-records automatically. A human reviews the data PR and merges to protected main.
-`apps/<id>.json` contains `{status, app, sources, reviewedAt, reviewRevision}`.
-Only approved records enter the public catalog; candidate research is separate.
-Configure branch protection and invalidate approvals on new commits before enabling
-publishing. Never treat an editable `approved` field alone as authorization.
+## Submit and update data
 
-The workflow validates PRs and produces a catalog artifact for each revision.
-The CDN upload adapter is pending selection of the existing Asset Info destination.
-After merge, publish immutable `releases/<revision>/catalog.json` first, then
-atomically update the stable `catalog.json` object. Use a 60-second cache TTL for
-the stable object and immutable caching for releases. Serialize publication; a
-failed upload must retain the previous stable object. Restore the previous release
-object to roll back. UI fetches the stable JSON; no UI build is involved.
+Submit projects or corrections through GitHub Issue Forms. Maintainers check official
+sources and supported networks, then create a data PR. `apps/<id>.json` contains
+`{status, app, sources, reviewedAt, reviewRevision}`. Only approved records enter
+the public catalog. Candidates remain separate; issues do not publish directly.
+There is no connected AI reviewer. Required `catalog` CI must pass before merging;
+mandatory approving reviews are disabled per repository policy.
 
-UI settings: ECOSYSTEM_CATALOG_URL (stable catalog.json URL),
-ECOSYSTEM_SUBMISSION_REPOSITORY (owner/repo), ECOSYSTEM_CACHE_DIRECTORY (persistent
-shared volume). Configure once. Catalog refreshes do not require restarting UI.
+## Automatic publication
 
-No CDN upload, GitHub repository creation, AI reviewer or production deployment has
-been performed. Candidates require network evidence and human review before approval.
-The feed is one complete JSON object (rather than a pointer plus a second fetch),
-so one CDN object replacement switches every app and count atomically. Release ID
-and timestamp are inside it; release checksums remain available for audit.
+Every merge to main validates and builds the catalog. When
+`CATALOG_PUBLISH_ENABLED=true`, the separate publish job downloads that exact build
+artifact, authenticates to GCS, and publishes it. PR jobs cannot access publication
+credentials. Manual workflow dispatch on main can retry publication. A stale run
+cannot publish after a newer main revision is detected.
 
-The merge workflow includes a gated GCS publisher. Set CATALOG_GCS_PATH to the
-confirmed bucket's dedicated ecosystem prefix, bind an appropriately scoped
-GOOGLE_CREDENTIALS secret, and enable CATALOG_PUBLISH_ENABLED only after review.
-Do not copy existing credentials to chat, source files or logs. Object-generation
-preconditions prevent overwriting concurrent updates. INITIAL_CATALOG_PUBLISH=true
-is only for the initial stable object creation. Empty publication is blocked.
+Repository configuration:
 
-The supplied implementation has no connected AI service: humans triage Issue Forms
-and create reviewed data PRs. Candidate collection and the publisher never approve
-their own changes. Automated AI-assisted preparation can be added with an approved
-service identity without changing the intake form or public feed contract.
+- Actions secret `GOOGLE_CREDENTIALS`: the authorized GCS service account JSON,
+  configured directly in GitHub, never committed or printed.
+- Variable `CATALOG_GCS_PATH`: `gs://gcs.subscan.io/ecosystem`.
+- Variable `CATALOG_PUBLISH_ENABLED`: enable only after configuring the identity.
+
+The identity needs object read/create/update/delete permissions for the ecosystem
+prefix, including setting public object ACLs. Existing Asset Info files and
+bucket-wide access settings are not changed.
+
+Publish immutable `releases/<revision>/catalog.json` first, then replace stable
+`catalog.json` using a generation precondition. Both objects receive publicRead
+ACLs, matching the existing bucket's fine-grained access model. Stable cache TTL
+is 60 seconds; releases are immutable. Jobs are serialized, upload errors retain
+the prior stable catalog, and concurrent generation conflicts fail safely.
+Retries reuse byte-identical release objects. The final step checks the public CDN
+against the build artifact, allowing cache propagation. A failed public check
+marks the workflow failed; it does not roll back an already uploaded object.
+
+To roll back, revert the data change through a PR, producing a new release.
+`INITIAL_CATALOG_PUBLISH=true` is reserved for explicit first-time creation with
+the CLI adapter; the workflow expects the existing stable object. Empty catalogs
+are rejected unless explicitly authorized via `ALLOW_EMPTY_CATALOG=true`.
+
+## Frontend
+
+Configure `ECOSYSTEM_CATALOG_URL` once to the stable URL,
+`ECOSYSTEM_SUBMISSION_REPOSITORY=subscan-explorer/ecosystem-directory`, and
+`ECOSYSTEM_CACHE_DIRECTORY` to persistent storage. Data updates do not require a
+frontend build or restart. The local www preview already uses this live feed;
+production frontend deployment is separate.

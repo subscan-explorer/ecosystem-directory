@@ -8,7 +8,7 @@ if(!feed.directory.apps.length && process.env.ALLOW_EMPTY_CATALOG!=='true') thro
 function run(args){const result=spawnSync('gcloud',args,{stdio:'inherit'});if(result.status!==0) throw new Error('Publication failed')}
 // Release objects first; the stable object changes only after immutable upload succeeds.
 try {
-  run(['storage','cp','--if-generation-match=0','--cache-control=public,max-age=31536000,immutable',`dist/releases/${feed.releaseId}/catalog.json`,`${destination}/releases/${feed.releaseId}/catalog.json`])
+  run(['storage','cp','--predefined-acl=publicRead','--if-generation-match=0','--cache-control=public,max-age=31536000,immutable',`dist/releases/${feed.releaseId}/catalog.json`,`${destination}/releases/${feed.releaseId}/catalog.json`])
 } catch {
   const existing=spawnSync('gcloud',['storage','cat',`${destination}/releases/${feed.releaseId}/catalog.json`],{encoding:'utf8'})
   if(existing.status!==0 || existing.stdout !== await readFile('dist/catalog.json','utf8')) throw new Error('Immutable release upload failed or content mismatch')
@@ -18,5 +18,5 @@ const metadata=spawnSync('gcloud',['storage','objects','describe',`${destination
 if(metadata.status!==0 && process.env.INITIAL_CATALOG_PUBLISH!=='true') throw new Error('Cannot read active generation; old catalog retained')
 const generation=metadata.status===0 ? metadata.stdout.trim() : '0'
 if(!/^\d+$/.test(generation)) throw new Error('Invalid active generation')
-run(['storage','cp',`--if-generation-match=${generation}`,'--cache-control=public,max-age=60,must-revalidate','dist/catalog.json',`${destination}/catalog.json`])
+run(['storage','cp','--predefined-acl=publicRead',`--if-generation-match=${generation}`,'--cache-control=public,max-age=60,must-revalidate','dist/catalog.json',`${destination}/catalog.json`])
 console.log(`Activated catalog ${feed.releaseId}`)
