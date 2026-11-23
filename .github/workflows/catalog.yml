@@ -3,6 +3,7 @@ on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
@@ -24,18 +25,31 @@ jobs:
         with:
           name: ecosystem-catalog
           path: dist/
+  publish:
+    needs: catalog
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.CATALOG_PUBLISH_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.22.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: ecosystem-catalog
+          path: dist/
       - uses: google-github-actions/auth@v2
-        if: github.event_name == 'push' && vars.CATALOG_PUBLISH_ENABLED == 'true'
         with:
           credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
       - uses: google-github-actions/setup-gcloud@v2
-        if: github.event_name == 'push' && vars.CATALOG_PUBLISH_ENABLED == 'true'
       - name: Publish independent catalog
-        if: github.event_name == 'push' && vars.CATALOG_PUBLISH_ENABLED == 'true'
         run: |
           git fetch origin main
           test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
           node scripts/publish.mjs
         env:
           CATALOG_GCS_PATH: ${{ vars.CATALOG_GCS_PATH }}
-          INITIAL_CATALOG_PUBLISH: ${{ vars.INITIAL_CATALOG_PUBLISH }}
+      - name: Verify public CDN content
+        run: node scripts/verify-cdn.mjs
+        env:
+          CATALOG_PUBLIC_URL: https://gcs.subscan.io/ecosystem/catalog.json
