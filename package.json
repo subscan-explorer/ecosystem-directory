@@ -7,6 +7,7 @@
   },
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node --test scripts/*.test.mjs"
+    "test": "node --test scripts/*.test.mjs",
+    "publish:cdn": "bash scripts/publish-local.sh"
   }
 }

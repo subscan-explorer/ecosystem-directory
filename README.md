@@ -12,6 +12,33 @@ the public catalog. Candidates remain separate; issues do not publish directly.
 There is no connected AI reviewer. Required `catalog` CI must pass before merging;
 mandatory approving reviews are disabled per repository policy.
 
+## Local one-command publication (current operating mode)
+
+GitHub automatic publication remains disabled (`CATALOG_PUBLISH_ENABLED=false`).
+After merging a data update, run from this repository:
+
+```sh
+./scripts/publish-local.sh
+```
+
+Equivalent npm command: `npm run publish:cdn`.
+Requires Git, gcloud with an authenticated account that can publish to the bucket,
+and Node 24.22.1 or newer. If nvm is installed, the launcher selects installed
+Node 24.22.1. First-time setup: `nvm install 24.22.1` and `gcloud auth login`.
+No GitHub publishing secret is required for local publication.
+
+The command requires a clean main branch, fast-forwards to origin/main, tests and
+builds that revision in a temporary directory, uploads it, then verifies the public
+CDN bytes. It refuses local-only commits, uncommitted changes or outdated sources.
+A failed upload can be retried with the same command. It never modifies Asset Info
+objects or enables the GitHub publishing switch.
+
+To validate without uploading (still fetches/fast-forwards main and checks login):
+
+```sh
+./scripts/publish-local.sh --dry-run
+```
+
 ## Automatic publication
 
 Every merge to main validates and builds the catalog. When
